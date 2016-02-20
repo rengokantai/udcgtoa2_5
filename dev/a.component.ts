@@ -3,18 +3,37 @@
  */
 import {Component} from 'angular2/core';
 import {SService} from "./service/s.service";
+import {CService} from "./service/c.service";
 @Component({
     selector:'a-c',
     template:`
     <input type="text" #m>
-    <button (click)="onLog(m.value)">send</button>`,
-    providers:[SService]
+    <button (click)="onLog(m.value)">send</button>
+
+    <div>
+    <input type="text" #a>
+    <input type="text" #b>
+    <button (click)="onAdd(a.value,b.value)">add</button>
+    <button (click)="onMulti(a.value,b.value)">multi</button>
+    <p>{{res}}</p>
+    </div>
+
+    `,
+    providers:[SService,CService]
 
 })
 
 export class AComponent{
-    constructor(private _lS:SService){}
+    res:string;
+    constructor(private _lS:SService,private _cS:CService){}
 onLog(m:string){
     this._lS.l(m);
 }
+    onMulti(a:number,b:number){
+        this.res=""+this._cS.multi(+a,+b);
+    }
+
+    onAdd(a:number,b:number){
+        this.res=""+this._cS.add(+a,+b);
+    }
 }
