@@ -8,7 +8,8 @@ import {SService} from "./service/s.service";
 selector:'b-c',
     template:`
     <input type="text" #m>
-    <button (click)="onLog(m.value)">send</button>`
+    <button (click)="onLog(m.value)">send</button>`,
+    providers:[SService]
 
 })
 

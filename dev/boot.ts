@@ -3,4 +3,4 @@ import {AppComponent} from "./app.component";
 import {SService} from "./service/s.service";
 
 //noinspection TypeScriptValidateTypes
-bootstrap(AppComponent,[SService]);
+bootstrap(AppComponent);
