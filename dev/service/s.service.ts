@@ -4,7 +4,9 @@
 import {Injectable} from 'angular2/core';
 @Injectable()
 export class SService{
+    private _last = '';
     l(m:string){
-        console.log(m);
+        console.log(m+this._last);
+        this._last=m;
     }
 }
